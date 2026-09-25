@@ -41,15 +41,15 @@ export const ProductCard = ({ product, onSelectCustomizer, onQuickView }) => {
       className="group bg-white rounded-3xl border border-rose-100/80 hover:border-rose-300 shadow-xs hover:shadow-soft-lg transition-all duration-300 flex flex-col overflow-hidden relative"
     >
       {/* Top badges */}
-      <div className="absolute top-3 left-3 right-3 z-10 flex items-center justify-between pointer-events-none">
+      <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 right-2.5 sm:right-3 z-10 flex items-center justify-between pointer-events-none">
         <div className="flex flex-col gap-1 items-start">
           {product.badge && (
-            <span className="pointer-events-auto text-[11px] font-bold px-2.5 py-1 rounded-full bg-rose-500 text-white shadow-xs tracking-wide">
+            <span className="hidden sm:inline-block pointer-events-auto text-[11px] font-bold px-2.5 py-1 rounded-full bg-rose-500 text-white shadow-xs tracking-wide">
               {product.badge}
             </span>
           )}
           {discountPercent > 0 && (
-            <span className="pointer-events-auto text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-200/60">
+            <span className="pointer-events-auto text-[9px] sm:text-[10px] font-bold px-1.5 sm:px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-200/60 shadow-2xs">
               Save {discountPercent}%
             </span>
           )}

@@ -72,15 +72,6 @@ export const DesktopProductsView = ({ setView, onQuickView }) => {
     }
   };
 
-  const popularSearches = [
-    'Spotify Plaque',
-    'Magic Mug',
-    'Sequin Cushion',
-    'Keychain',
-    'Gift Hamper',
-    'Heart Lamp'
-  ];
-
   return (
     <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 py-4 sm:py-8 space-y-4 sm:space-y-8">
       {/* 1. Header Banner */}
@@ -179,35 +170,21 @@ export const DesktopProductsView = ({ setView, onQuickView }) => {
           </div>
         </div>
 
-        {/* Quick Search Tag Suggestions & Reset Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-rose-100/60 text-xs">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-slate-400 text-[11px] font-medium mr-1">Trending Searches:</span>
-            {popularSearches.map((tag) => (
-              <button
-                key={tag}
-                onClick={() => setSearchQuery(tag)}
-                className={`px-2.5 py-1 rounded-lg text-[11px] transition-colors border ${
-                  searchQuery.toLowerCase() === tag.toLowerCase()
-                    ? 'bg-rose-100 text-rose-700 border-rose-300 font-bold'
-                    : 'bg-slate-50 text-slate-600 border-slate-200/70 hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200'
-                }`}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
-
-          {(searchQuery || selectedCategory !== 'all' || selectedOccasion !== 'All Occasions' || priceRange < 100) && (
+        {/* Active Filter Status & Reset Action */}
+        {(searchQuery || selectedCategory !== 'all' || selectedOccasion !== 'All Occasions' || priceRange < 3500 || sortBy !== 'featured') && (
+          <div className="flex items-center justify-between gap-3 pt-3 border-t border-rose-100/60 text-xs">
+            <span className="text-slate-500 text-[11px] font-medium">
+              Filtered results: <strong className="text-slate-900 font-bold">{filteredProducts.length}</strong> items
+            </span>
             <button
               onClick={handleResetFilters}
-              className="text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1.5 bg-rose-50 px-3 py-1.5 rounded-xl border border-rose-200 transition-colors"
+              className="text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1.5 bg-rose-50 px-3 py-1.5 rounded-xl border border-rose-200 transition-colors active:scale-95"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Reset All Filters</span>
             </button>
-          )}
-        </div>
+          </div>
+        )}
       </div>
 
       {/* 4. Product Catalog Grid */}
