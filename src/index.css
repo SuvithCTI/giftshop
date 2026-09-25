@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#FCFBF8] text-slate-800 font-sans antialiased;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom delicate glassmorphism and animations */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(254, 226, 226, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(244, 114, 182, 0.08);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #e11d48 0%, #f43f5e 50%, #fb7185 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-brand {
+  background: linear-gradient(135deg, #f43f5e 0%, #fb7185 50%, #fda4af 100%);
+}
+
+.badge-shimmer {
+  background: linear-gradient(90deg, #fff1f2 0%, #ffe4e6 50%, #fff1f2 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Custom scrollbar for sweet aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdf6f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fbcfe8;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f472b6;
+}
+
+/* Engraving preview fonts */
+.font-dancing { font-family: 'Dancing Script', cursive; }
+.font-playfair { font-family: 'Playfair Display', serif; }
+.font-caveat { font-family: 'Caveat', cursive; }
+.font-pacifico { font-family: 'Pacifico', cursive; }
+.font-greatvibes { font-family: 'Great Vibes', cursive; }
+.font-sacramento { font-family: 'Sacramento', cursive; }
+.font-montserrat { font-family: 'Montserrat', sans-serif; }
+
+/* Moving Review Marquee Animation */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+
+.animate-marquee-track:hover {
+  animation-play-state: paused;
+}
+
