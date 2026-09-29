@@ -69,15 +69,23 @@ export const DesktopHomeView = ({ setView }) => {
   return (
     <div className="flex flex-col space-y-8 sm:space-y-12 lg:space-y-14 pb-2 sm:pb-4">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden pt-6 sm:pt-8 lg:pt-10">
-        {/* Soft Ambient Background Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1500px] h-[520px] bg-gradient-to-b from-rose-100/60 via-pink-50/40 to-transparent rounded-[48px] -z-10 blur-2xl pointer-events-none" />
+      <section className="relative overflow-hidden rounded-3xl lg:rounded-[40px] border border-rose-200/80 shadow-md min-h-[540px] flex items-center">
+        {/* Luxury Background Image - 100% Full Opacity */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <img
+            src="/homepage-hero-bg.jpg"
+            alt="Artisan Gift Studio Background"
+            className="w-full h-full object-cover object-center scale-100 opacity-100"
+          />
+          {/* Subtle soft vignette overlay for text clarity */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/40 to-transparent" />
+        </div>
 
-        <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-[1500px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-14">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
             {/* Left Copy */}
             <div className="lg:col-span-7 flex flex-col justify-center space-y-5 sm:space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 border border-rose-200/90 shadow-2xs w-fit">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 border border-rose-200 shadow-xs w-fit">
                 <Sparkles className="w-4 h-4 text-rose-500 animate-spin-slow" />
                 <span className="text-xs font-bold text-rose-700 tracking-wider uppercase">
                   Handcrafted Artisan Gift Studio
@@ -209,27 +217,6 @@ export const DesktopHomeView = ({ setView }) => {
                     <p className="text-xs text-slate-200 mt-1 line-clamp-2">
                       Handcrafted with 3D royal lehenga embroidery, custom wedding hashtag, calendar heart marker & glowing perimeter ring light.
                     </p>
-                  </div>
-                </div>
-
-                {/* Floating Badge 1: WhatsApp preview */}
-                <div className="absolute -bottom-3 sm:-bottom-5 left-2 sm:-left-5 bg-white/95 backdrop-blur-md p-2.5 sm:p-3.5 rounded-2xl shadow-lg border border-rose-100 flex items-center gap-2.5 sm:gap-3 animate-bounce-slow max-w-[calc(100%-20px)]">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
-                    <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-slate-900">100% Quality Approval</div>
-                    <div className="text-[10px] text-slate-500">Free design preview on WhatsApp</div>
-                  </div>
-                </div>
-
-                {/* Floating Badge 2: Bestseller */}
-                <div className="absolute -top-3 sm:-top-3.5 right-2 sm:-right-3.5 bg-white/95 backdrop-blur-md p-2 sm:p-3 rounded-2xl shadow-lg border border-rose-100 flex items-center gap-1.5 sm:gap-2">
-                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-rose-500 text-white flex items-center justify-center">
-                    <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                  </div>
-                  <div className="text-xs font-bold text-slate-800">
-                    Bestseller
                   </div>
                 </div>
               </div>
@@ -372,49 +359,61 @@ export const DesktopHomeView = ({ setView }) => {
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
-            <div className="bg-white p-3.5 sm:p-6 rounded-2xl sm:rounded-3xl border border-rose-100 shadow-2xs space-y-2 sm:space-y-3 flex flex-col justify-between">
+            {/* Step 1: Rose Gradient */}
+            <div className="bg-gradient-to-br from-rose-50/95 via-pink-50/40 to-white p-3.5 sm:p-6 rounded-2xl sm:rounded-3xl border border-rose-200/90 hover:border-rose-400 shadow-2xs hover:shadow-md transition-all space-y-2 sm:space-y-3 flex flex-col justify-between group">
               <div>
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-rose-500 text-white font-serif font-bold text-sm sm:text-lg flex items-center justify-center shadow-2xs mb-2 sm:mb-3">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white font-serif font-bold text-sm sm:text-lg flex items-center justify-center shadow-xs mb-2 sm:mb-3 group-hover:scale-105 transition-transform">
                   1
                 </div>
-                <h3 className="font-serif font-bold text-slate-900 text-xs sm:text-base">1. Select Gift</h3>
-                <p className="text-[10.5px] sm:text-xs text-slate-500 leading-relaxed mt-0.5 sm:mt-1">
+                <h3 className="font-serif font-bold text-slate-950 text-xs sm:text-base group-hover:text-rose-600 transition-colors">
+                  1. Select Gift
+                </h3>
+                <p className="text-[10.5px] sm:text-xs text-slate-800 font-medium leading-relaxed mt-0.5 sm:mt-1">
                   Choose from calendar wall frames, crystal rotating lamps, bridal embroidery hoops, or luxury hampers.
                 </p>
               </div>
             </div>
 
-            <div className="bg-white p-3.5 sm:p-6 rounded-2xl sm:rounded-3xl border border-rose-100 shadow-2xs space-y-2 sm:space-y-3 flex flex-col justify-between">
+            {/* Step 2: Amber / Orange Gradient */}
+            <div className="bg-gradient-to-br from-amber-50/95 via-orange-50/40 to-white p-3.5 sm:p-6 rounded-2xl sm:rounded-3xl border border-amber-200/90 hover:border-amber-400 shadow-2xs hover:shadow-md transition-all space-y-2 sm:space-y-3 flex flex-col justify-between group">
               <div>
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-amber-500 text-white font-serif font-bold text-sm sm:text-lg flex items-center justify-center shadow-2xs mb-2 sm:mb-3">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 text-white font-serif font-bold text-sm sm:text-lg flex items-center justify-center shadow-xs mb-2 sm:mb-3 group-hover:scale-105 transition-transform">
                   2
                 </div>
-                <h3 className="font-serif font-bold text-slate-900 text-xs sm:text-base">2. Add Details</h3>
-                <p className="text-[10.5px] sm:text-xs text-slate-500 leading-relaxed mt-0.5 sm:mt-1">
+                <h3 className="font-serif font-bold text-slate-950 text-xs sm:text-base group-hover:text-amber-700 transition-colors">
+                  2. Add Details
+                </h3>
+                <p className="text-[10.5px] sm:text-xs text-slate-800 font-medium leading-relaxed mt-0.5 sm:mt-1">
                   Provide custom couple names, anniversary/birth dates, hashtags, or personal heartfelt greeting notes.
                 </p>
               </div>
             </div>
 
-            <div className="bg-white p-3.5 sm:p-6 rounded-2xl sm:rounded-3xl border border-rose-100 shadow-2xs space-y-2 sm:space-y-3 flex flex-col justify-between">
+            {/* Step 3: Purple / Fuchsia Gradient */}
+            <div className="bg-gradient-to-br from-purple-50/95 via-fuchsia-50/40 to-white p-3.5 sm:p-6 rounded-2xl sm:rounded-3xl border border-purple-200/90 hover:border-purple-400 shadow-2xs hover:shadow-md transition-all space-y-2 sm:space-y-3 flex flex-col justify-between group">
               <div>
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-pink-500 text-white font-serif font-bold text-sm sm:text-lg flex items-center justify-center shadow-2xs mb-2 sm:mb-3">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-gradient-to-br from-purple-500 to-fuchsia-600 text-white font-serif font-bold text-sm sm:text-lg flex items-center justify-center shadow-xs mb-2 sm:mb-3 group-hover:scale-105 transition-transform">
                   3
                 </div>
-                <h3 className="font-serif font-bold text-slate-900 text-xs sm:text-base">3. Instant Proof</h3>
-                <p className="text-[10.5px] sm:text-xs text-slate-500 leading-relaxed mt-0.5 sm:mt-1">
+                <h3 className="font-serif font-bold text-slate-950 text-xs sm:text-base group-hover:text-purple-700 transition-colors">
+                  3. Instant Proof
+                </h3>
+                <p className="text-[10.5px] sm:text-xs text-slate-800 font-medium leading-relaxed mt-0.5 sm:mt-1">
                   Our master artisan team prepares a high-res digital preview and verifies everything with you on WhatsApp.
                 </p>
               </div>
             </div>
 
-            <div className="bg-white p-3.5 sm:p-6 rounded-2xl sm:rounded-3xl border border-rose-100 shadow-2xs space-y-2 sm:space-y-3 flex flex-col justify-between">
+            {/* Step 4: Emerald / Teal Gradient */}
+            <div className="bg-gradient-to-br from-emerald-50/95 via-teal-50/40 to-white p-3.5 sm:p-6 rounded-2xl sm:rounded-3xl border border-emerald-200/90 hover:border-emerald-400 shadow-2xs hover:shadow-md transition-all space-y-2 sm:space-y-3 flex flex-col justify-between group">
               <div>
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-emerald-500 text-white font-serif font-bold text-sm sm:text-lg flex items-center justify-center shadow-2xs mb-2 sm:mb-3">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white font-serif font-bold text-sm sm:text-lg flex items-center justify-center shadow-xs mb-2 sm:mb-3 group-hover:scale-105 transition-transform">
                   4
                 </div>
-                <h3 className="font-serif font-bold text-slate-900 text-xs sm:text-base">4. Delivered</h3>
-                <p className="text-[10.5px] sm:text-xs text-slate-500 leading-relaxed mt-0.5 sm:mt-1">
+                <h3 className="font-serif font-bold text-slate-950 text-xs sm:text-base group-hover:text-emerald-700 transition-colors">
+                  4. Delivered
+                </h3>
+                <p className="text-[10.5px] sm:text-xs text-slate-800 font-medium leading-relaxed mt-0.5 sm:mt-1">
                   We handcraft your gift with precision, pack it in gift-ready boxes with ribbons, and ship straight to your door.
                 </p>
               </div>

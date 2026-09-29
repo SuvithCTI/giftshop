@@ -74,27 +74,30 @@ export const DesktopProductsView = ({ setView, onQuickView }) => {
 
   return (
     <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 py-4 sm:py-8 space-y-4 sm:space-y-8">
-      {/* 1. Header Banner */}
-      <div className="bg-gradient-to-r from-rose-50/80 via-pink-50/70 to-amber-50/60 rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-10 border border-rose-100 flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-6 shadow-xs">
-        <div className="space-y-1.5 sm:space-y-2 max-w-2xl">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white text-rose-600 text-[10px] sm:text-[11px] font-bold border border-rose-100 shadow-2xs">
-            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+      {/* 1. Header Banner with Rich Gradient */}
+      <div className="bg-gradient-to-r from-rose-100/90 via-pink-100/80 to-amber-100/70 rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 border border-rose-200/90 flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 shadow-xs relative overflow-hidden">
+        {/* Subtle Ambient Shimmer */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-rose-200/40 via-amber-200/20 to-transparent rounded-full pointer-events-none blur-3xl" />
+
+        <div className="space-y-1.5 sm:space-y-2 max-w-2xl relative z-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 text-rose-700 text-[10px] sm:text-[11px] font-bold border border-rose-200 shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-rose-500" />
             <span>Bespoke Handcrafted Catalog</span>
           </div>
-          <h1 className="font-serif text-xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight">
-            Personalized Keepsakes & Unique Gifts
+          <h1 className="font-serif text-xl sm:text-3xl lg:text-4xl font-bold text-slate-950 leading-tight">
+            Personalized Keepsakes & <span className="gradient-text italic font-serif">Unique Gifts</span>
           </h1>
-          <p className="text-[11px] sm:text-sm text-slate-600 leading-relaxed">
+          <p className="text-[11px] sm:text-sm text-slate-900 font-medium leading-relaxed">
             Every product is customizable with your personal photos, names, dates, soundwaves, and heartfelt notes. Free laser engraving and digital preview proof included.
           </p>
         </div>
 
-        <div className="flex items-center gap-3 shrink-0 self-start md:self-auto">
-          <div className="bg-white/95 backdrop-blur-md px-3 py-1.5 sm:px-6 sm:py-4 rounded-xl sm:rounded-2xl border border-rose-200/80 shadow-2xs flex sm:flex-col items-center gap-1.5 sm:gap-0 text-left sm:text-center">
-            <span className="text-sm sm:text-3xl font-bold text-rose-600 font-serif">
+        <div className="flex items-center gap-3 shrink-0 self-start md:self-auto relative z-10">
+          <div className="bg-white/95 backdrop-blur-md px-3.5 py-2 sm:px-6 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-rose-300/80 shadow-xs flex sm:flex-col items-center gap-2 sm:gap-0 text-left sm:text-center">
+            <span className="text-base sm:text-3xl font-bold text-rose-600 font-serif">
               {filteredProducts.length}
             </span>
-            <span className="text-[10px] sm:text-[11px] text-slate-700 font-medium">
+            <span className="text-[10.5px] sm:text-[11px] text-slate-800 font-bold">
               Bespoke Gifts Available
             </span>
           </div>
